@@ -1182,11 +1182,23 @@ HIER IST DER LERNZETTEL:
     }
 
     /* Stable tap/click on iOS/Android/PC */
-    function bindTap(el, fn){
-      el.addEventListener("pointerup", (e)=>{ if(e.isPrimary !== false) fn(); });
-      el.addEventListener("click", fn); // fallback
-    }
+ function bindTap(el, fn){
+  let fired = false;
 
+  // Hauptweg (Handy + PC)
+  el.addEventListener("pointerup", (e) => {
+    fired = true;
+    fn();
+    // nach kurzer Zeit wieder erlauben
+    setTimeout(() => { fired = false; }, 0);
+  });
+
+  // Fallback: nur wenn pointerup nicht schon ausgelöst hat
+  el.addEventListener("click", (e) => {
+    if (fired) return;
+    fn();
+  });
+}
     function openGuide(){ $("guideOverlay").classList.add("on"); }
     function closeGuide(){ $("guideOverlay").classList.remove("on"); }
 
