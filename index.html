@@ -1181,19 +1181,19 @@ HIER IST DER LERNZETTEL:
       URL.revokeObjectURL(url);
     }
 
-    /* Stable tap/click on iOS/Android/PC */
+
  function bindTap(el, fn){
   let fired = false;
 
-  // Hauptweg (Handy + PC)
+
   el.addEventListener("pointerup", (e) => {
     fired = true;
     fn();
-    // nach kurzer Zeit wieder erlauben
+   
     setTimeout(() => { fired = false; }, 0);
   });
 
-  // Fallback: nur wenn pointerup nicht schon ausgelöst hat
+
   el.addEventListener("click", (e) => {
     if (fired) return;
     fn();
