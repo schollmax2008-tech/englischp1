@@ -1,1 +1,1115 @@
 
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Englisch Q1 – Vokabeln • Advanced Vocab • Starters • Textsorten</title>
+  <style>
+    :root{
+      --bg1:#f6fbff; --bg2:#fff7fb; --ink:#0b1220; --muted:#5c6b86;
+      --line: rgba(11,18,32,.12);
+      --pink:#ff2d7d; --cyan:#00c2ff; --lime:#12e39b; --yellow:#ffcc00; --purple:#7c3aed; --orange:#ff6a00;
+      --shadow: 0 18px 60px rgba(10, 20, 60, .12);
+      --shadow2: 0 10px 30px rgba(10, 20, 60, .10);
+      --r: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 700px at 20% 5%, rgba(0,194,255,.18), transparent 60%),
+        radial-gradient(900px 650px at 85% 20%, rgba(255,45,125,.14), transparent 55%),
+        radial-gradient(800px 600px at 65% 92%, rgba(18,227,155,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh; padding:18px;
+    }
+    .app{ width:min(1240px, 100%); margin:0 auto; display:grid; grid-template-columns: 420px 1fr; gap:16px; }
+    @media (max-width: 1020px){ .app{grid-template-columns:1fr} }
+
+    .panel{
+      background: rgba(255,255,255,.74);
+      backdrop-filter: blur(10px);
+      border:1px solid var(--line);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .side{ padding:16px; display:flex; flex-direction:column; gap:12px; }
+    .main{ padding:16px; display:flex; flex-direction:column; gap:14px; }
+
+    .brand{ display:flex; gap:12px; align-items:center; }
+    .logo{
+      width:46px;height:46px;border-radius:16px;
+      background: conic-gradient(from 220deg, var(--pink), var(--cyan), var(--lime), var(--yellow), var(--pink));
+      box-shadow: 0 10px 25px rgba(255,45,125,.18);
+    }
+    h1{ font-size:16px; margin:0; letter-spacing:.2px; }
+    .sub{ font-size:12.5px; color:var(--muted); line-height:1.35; }
+
+    .pillRow{ display:flex; gap:8px; flex-wrap:wrap; }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.85);
+      font-size:12.5px; color:var(--muted);
+    }
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      border:1px solid var(--line);
+      padding:2px 6px; border-radius: 10px;
+      background: rgba(255,255,255,.9);
+      color: var(--ink); font-size: 12px;
+    }
+
+    .box{
+      background: rgba(255,255,255,.9);
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding:12px; box-shadow: var(--shadow2);
+    }
+    label{ font-size:12px; color:var(--muted); display:block; margin-bottom:6px; }
+    select, input[type="text"]{
+      width:100%; border-radius: 14px; border:1px solid var(--line);
+      background: rgba(255,255,255,.92);
+      padding:11px 12px; font-size:14px; outline:none;
+    }
+    select:focus, input[type="text"]:focus{
+      border-color: rgba(0,194,255,.55);
+      box-shadow: 0 0 0 4px rgba(0,194,255,.14);
+    }
+
+    .btnRow{ display:flex; gap:10px; flex-wrap:wrap; }
+    .btn{
+      appearance:none; border:1px solid transparent;
+      background: rgba(0,194,255,.18);
+      color: var(--ink);
+      padding:10px 12px; border-radius: 14px;
+      font-weight:900; font-size:13px; cursor:pointer;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+      box-shadow: 0 10px 22px rgba(0,194,255,.12);
+    }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn:active{ transform: translateY(0px) scale(.99); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(255,45,125,.95), rgba(0,194,255,.95));
+      color:#fff;
+      box-shadow: 0 16px 30px rgba(255,45,125,.18);
+    }
+    .btn.secondary{
+      background: rgba(255,255,255,.9);
+      border-color: var(--line);
+      box-shadow: none;
+      font-weight:900;
+    }
+    .btn.good{
+      background: rgba(18,227,155,.22);
+      border-color: rgba(18,227,155,.35);
+      box-shadow: 0 12px 22px rgba(18,227,155,.14);
+    }
+    .btn.bad{
+      background: rgba(255,45,125,.14);
+      border-color: rgba(255,45,125,.30);
+      box-shadow: 0 12px 22px rgba(255,45,125,.12);
+    }
+    .btn:disabled{
+      opacity:.55;
+      cursor:not-allowed;
+      transform:none !important;
+      box-shadow:none !important;
+    }
+
+    .topbar{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between; }
+    .statRow{ display:flex; gap:10px; flex-wrap:wrap; }
+    .stat{
+      background: rgba(255,255,255,.9);
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding:10px 12px;
+      min-width: 190px;
+      box-shadow: var(--shadow2);
+    }
+    .stat .lbl{ font-size:12px; color:var(--muted) }
+    .stat .num{ font-size:18px; font-weight:950 }
+
+    .view{ display:none; }
+    .view.on{ display:block; }
+
+    .cardWrap{ display:flex; justify-content:center; padding:4px; }
+    .card3d{ width:min(800px, 100%); height:410px; perspective:1200px; }
+    .card{
+      width:100%; height:100%;
+      position:relative; transform-style:preserve-3d;
+      transition: transform .55s cubic-bezier(.2,.8,.2,1);
+      cursor:pointer; user-select:none;
+    }
+    .card.flipped{ transform: rotateY(180deg); }
+    .face{
+      position:absolute; inset:0;
+      border-radius: 22px;
+      background: rgba(255,255,255,.94);
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding:18px;
+      display:flex; flex-direction:column; justify-content:space-between;
+      backface-visibility:hidden;
+      overflow:hidden;
+    }
+    .face::before{
+      content:""; position:absolute; inset:-2px; z-index:0; pointer-events:none;
+      background:
+        radial-gradient(900px 380px at 20% 0%, rgba(0,194,255,.18), transparent 55%),
+        radial-gradient(700px 300px at 95% 15%, rgba(255,45,125,.16), transparent 55%),
+        radial-gradient(700px 360px at 60% 120%, rgba(18,227,155,.16), transparent 55%);
+    }
+    .face > *{ position:relative; z-index:1; }
+    .back{ transform: rotateY(180deg); }
+
+    .meta{ display:flex; justify-content:space-between; align-items:center; gap:10px; font-size:12px; color:var(--muted); }
+    .badge{
+      font-weight:950; color:#fff;
+      padding:6px 10px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--purple), var(--cyan));
+      box-shadow: 0 10px 18px rgba(124,58,237,.14);
+      white-space:nowrap;
+    }
+    .badge.vocab{ background: linear-gradient(135deg, var(--cyan), var(--lime)); }
+    .badge.adv{ background: linear-gradient(135deg, var(--pink), var(--orange)); }
+    .badge.starters{ background: linear-gradient(135deg, var(--purple), var(--pink)); }
+    .badge.text{ background: linear-gradient(135deg, var(--orange), var(--yellow)); }
+    .badge.mix{ background: linear-gradient(135deg, var(--purple), var(--lime)); }
+
+    .big{
+      font-size: 28px;
+      line-height:1.22;
+      font-weight: 980;
+      letter-spacing:.15px;
+      white-space:pre-wrap;
+      word-break:break-word;
+    }
+    .hint{ font-size:12.5px; color:var(--muted); line-height:1.4; }
+    .small{ font-size:14px; color: var(--muted); line-height:1.45; white-space:pre-wrap; }
+
+    .footerControls{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; padding-top:6px; }
+
+    .quizBox{
+      margin: 0 auto;
+      width:min(800px, 100%);
+      background: rgba(255,255,255,.92);
+      border:1px solid var(--line);
+      border-radius: 18px;
+      padding:12px;
+      box-shadow: var(--shadow2);
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .feedback{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding:10px 12px;
+      font-size:13px;
+      line-height:1.35;
+      white-space:pre-wrap;
+      background: rgba(255,255,255,.9);
+    }
+    .feedback.good{ border-color: rgba(18,227,155,.40); background: rgba(18,227,155,.12); }
+    .feedback.bad{ border-color: rgba(255,45,125,.35); background: rgba(255,45,125,.10); }
+
+    .switch{
+      display:flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.9);
+      box-shadow: var(--shadow2);
+      font-size:13px; color:var(--muted);
+    }
+    .switch input{ transform: scale(1.1); }
+
+    .grid2{ display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+    @media (max-width: 900px){ .grid2{grid-template-columns:1fr} }
+    .h2{ font-weight:950; margin:0 0 6px 0; font-size:14px; }
+    ul{ margin:8px 0 0 18px; color:var(--muted); }
+    li{ margin:6px 0; }
+  </style>
+</head>
+
+<body>
+<div class="app">
+
+  <!-- LEFT -->
+  <aside class="panel side">
+    <div class="brand">
+      <div class="logo"></div>
+      <div>
+        <h1>Englisch Q1 Lern-App (1 Datei)</h1>
+        <div class="sub">Vokabeln • Advanced Vocab/Transitions • Starters • Textsorten/Lernzettel</div>
+      </div>
+    </div>
+
+    <div class="pillRow">
+      <div class="pill"><b>Keys:</b> <span class="kbd">Space</span> flip • <span class="kbd">←</span>/<span class="kbd">→</span> • <span class="kbd">Enter</span> check</div>
+      <div class="pill"><b>Wichtig:</b> iOS: Datei via <b>Teilen → In Safari öffnen</b></div>
+    </div>
+
+    <div class="box">
+      <label for="rubricSelect">Rubrik</label>
+      <select id="rubricSelect">
+        <option value="VOCAB">1) Vokabeln (DE → EN)</option>
+        <option value="ADV">2) Advanced Vocabulary & Transitions</option>
+        <option value="STARTERS">3) Sentence Starters (Analyse/Argumentation)</option>
+        <option value="TEXT">4) Textsorten & Lernzettel (Cheat Sheets)</option>
+        <option value="ALL">Alle Rubriken (Mix)</option>
+      </select>
+    </div>
+
+    <div class="switch">
+      <input id="shuffleToggle" type="checkbox" checked />
+      <div><b>Shuffle</b><div class="sub">mischt Karten beim Start</div></div>
+    </div>
+
+    <div class="switch">
+      <input id="repeatHardToggle" type="checkbox" />
+      <div><b>Nur schwere Karten</b><div class="sub">trainiert deine Schwächen</div></div>
+    </div>
+
+    <div class="box">
+      <label>Modus</label>
+      <div class="btnRow">
+        <button class="btn primary" id="goLearnBtn">Lernen (Flip)</button>
+        <button class="btn secondary" id="goQuizBtn">Quiz (Eingabe)</button>
+      </div>
+      <div class="sub" style="margin-top:10px">
+        Quiz = Kernphrase reicht (nicht 1:1). Markiere ❌ “Schwer”, dann wiederholen.
+      </div>
+    </div>
+
+    <!-- MASTER DOWNLOAD (locked) -->
+    <div class="box">
+      <label>🎁 Bonus: Master-Lernzettel (Download)</label>
+      <div class="sub" id="masterDownloadStatus" style="margin-bottom:10px;">
+        Freischalten, indem du genug Fortschritt erreichst.
+      </div>
+      <div class="btnRow">
+        <button class="btn primary" id="downloadMasterBtn" disabled>Download (Master-Lernzettel)</button>
+      </div>
+      <div class="sub" style="margin-top:8px;">
+        Freischaltung: <b>35 richtig</b> + <b>70 Karten gesehen</b> (gesamt).
+      </div>
+    </div>
+
+    <div class="btnRow">
+      <button class="btn secondary" id="homeBtn">🏠 Start</button>
+      <button class="btn secondary" id="restartBtn">🔁 Neu starten</button>
+      <button class="btn secondary" id="resetBtn">Reset (Score/Schwer)</button>
+    </div>
+
+    <div class="sub">
+      Fortschritt wird im Browser gespeichert. “Reset” löscht Score + Schwer + Seen.
+    </div>
+  </aside>
+
+  <!-- RIGHT -->
+  <main class="panel main">
+
+    <div class="topbar">
+      <div class="statRow">
+        <div class="stat">
+          <div class="lbl">Fortschritt</div>
+          <div class="num" id="progressNum">0 / 0</div>
+        </div>
+        <div class="stat">
+          <div class="lbl">Richtig / Schwer</div>
+          <div class="num"><span id="rightNum">0</span> / <span id="hardNum">0</span></div>
+        </div>
+        <div class="stat">
+          <div class="lbl">Modus</div>
+          <div class="num" id="modeNum">Start</div>
+        </div>
+      </div>
+      <div class="btnRow">
+        <button class="btn secondary" id="helpBtn">❓ Anleitung</button>
+      </div>
+    </div>
+
+    <!-- HOME VIEW -->
+    <section class="view on" id="homeView">
+      <div class="box" style="padding:16px">
+        <div class="badge">Startseite</div>
+        <div class="big" style="font-size:28px; margin-top:10px;">
+          So nutzt du die Seite (kurz & verständlich)
+        </div>
+        <div class="sub" style="margin-top:8px">
+          Wähle links eine Rubrik und starte “Lernen” oder “Quiz”.
+          Ziel: Du kannst in der Klausur nicht nur Wörter, sondern auch saubere Übergänge + Textsorten-Analyse.
+        </div>
+
+        <div class="grid2" style="margin-top:14px;">
+          <div class="box">
+            <div class="h2">Rubriken – was du damit machst</div>
+            <ul>
+              <li><b>Vokabeln:</b> DE → EN. Im Quiz tippst du das englische Wort / die Phrase.</li>
+              <li><b>Advanced Vocab:</b> Übergänge, akademische Verben, Bewertung, Hedging, Topic-Chunks.</li>
+              <li><b>Starters:</b> Satzanfänge, damit du nicht verhaspelst und direkt losschreibst.</li>
+              <li><b>Textsorten:</b> Mini-Lernzettel: dystopia/utopia features, non-fiction types, structure, mediation.</li>
+            </ul>
+          </div>
+
+          <div class="box">
+            <div class="h2">Wie wirst du “besser” in Klausursprache?</div>
+            <ul>
+              <li>Ersetze „and“ → <b>moreover / furthermore</b></li>
+              <li>Ersetze „but“ → <b>however / in contrast</b></li>
+              <li>Ersetze „because“ → <b>as a result / therefore</b></li>
+              <li>Nutze <b>hedging</b>: “It seems that … / may …”</li>
+              <li>Nutze <b>analysis verbs</b>: “portrays / highlights / warns against …”</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="box" style="margin-top:12px;">
+          <div class="h2">Quick Start (10–20 Minuten)</div>
+          <div class="sub">
+            1) Advanced Vocab (Quiz) → 2) Starters (Learn) → 3) Textsorten (Learn) → 4) Vokabeln (Quiz).
+          </div>
+          <div class="btnRow" style="margin-top:10px;">
+            <button class="btn primary" id="quickAdvQuiz">Quiz: Advanced Vocab</button>
+            <button class="btn secondary" id="quickStartersLearn">Lernen: Starters</button>
+            <button class="btn secondary" id="quickTextLearn">Lernen: Textsorten</button>
+            <button class="btn secondary" id="quickVocabQuiz">Quiz: Vokabeln</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HELP VIEW -->
+    <section class="view" id="helpView">
+      <div class="box" style="padding:16px">
+        <div class="badge">Anleitung</div>
+        <div class="big" style="font-size:26px; margin-top:10px;">Kurz-Guide</div>
+        <div class="small" style="margin-top:10px;">
+1) Rubrik wählen (links).
+2) Lernen (Flip):
+   - Vorderseite lesen → Antwort sagen → flip → ✅/❌.
+3) Quiz (Eingabe):
+   - Antwort tippen → Enter/Prüfen.
+   - Du musst nicht wortwörtlich treffen: Kernphrase reicht.
+4) Nur schwere Karten:
+   - ❌ markieren → “Nur schwere” aktivieren → Schwächen trainieren.
+5) iPhone/iPad:
+   - Wenn nichts klickbar ist: Datei NICHT im Preview öffnen.
+   - Stattdessen: Dateien-App → lange drücken → Teilen → In Safari öffnen.
+        </div>
+        <div class="btnRow" style="margin-top:10px;">
+          <button class="btn secondary" id="backFromHelpBtn">← Zurück</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEARN VIEW -->
+    <section class="view" id="learnView">
+      <div class="cardWrap">
+        <div class="card3d">
+          <div class="card" id="card">
+            <div class="face front">
+              <div class="meta">
+                <span class="badge mix" id="badge">Rubrik</span>
+                <span id="indexTag">1 / 1</span>
+              </div>
+              <div class="big" id="frontText">…</div>
+              <div class="hint">Klick/Space flip. <span class="kbd">→</span> nächste Karte.</div>
+            </div>
+            <div class="face back">
+              <div class="meta">
+                <span class="badge" style="background: linear-gradient(135deg,var(--orange),var(--yellow));">Antwort</span>
+                <span id="altTag"></span>
+              </div>
+              <div class="big" id="backText">…</div>
+              <div class="small" id="noteText"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footerControls">
+        <button class="btn secondary" id="prevBtn">← Zurück</button>
+        <button class="btn secondary" id="flipBtn">Flip</button>
+        <button class="btn secondary" id="nextBtn">Weiter →</button>
+        <button class="btn good" id="markKnownBtn">✅ Kann ich</button>
+        <button class="btn bad" id="markHardBtn">❌ Schwer</button>
+      </div>
+    </section>
+
+    <!-- QUIZ VIEW -->
+    <section class="view" id="quizView">
+      <div class="cardWrap">
+        <div class="card3d" style="height:320px;">
+          <div class="card" style="cursor:default;">
+            <div class="face front">
+              <div class="meta">
+                <span class="badge mix" id="quizBadge">Rubrik</span>
+                <span id="quizIndexTag">1 / 1</span>
+              </div>
+              <div class="big" id="quizPrompt">…</div>
+              <div class="hint">Tippe deine Antwort und drücke <span class="kbd">Enter</span>.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quizBox">
+        <div>
+          <label for="answerInput">Deine Antwort</label>
+          <input id="answerInput" type="text" placeholder="kurz & präzise (z.B. 'surveillance' / 'as a result')" autocomplete="off" />
+          <div class="sub" style="margin-top:6px">Kernphrase reicht oft (tolerante Prüfung).</div>
+        </div>
+
+        <div class="btnRow">
+          <button class="btn good" id="checkBtn">Prüfen</button>
+          <button class="btn secondary" id="showBtn">Lösung zeigen</button>
+          <button class="btn secondary" id="skipBtn">Skip</button>
+        </div>
+
+        <div class="feedback" id="feedback">Antwort eingeben und prüfen.</div>
+
+        <div class="btnRow">
+          <button class="btn good" id="markRightBtn">Als richtig zählen</button>
+          <button class="btn bad" id="markWrongBtn">Als schwer markieren</button>
+          <button class="btn secondary" id="quizPrevBtn">←</button>
+          <button class="btn secondary" id="quizNextBtn">→</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+/* ==========================================================
+   DATA – thematisch passend zu Utopia/Dystopia/Technology/Genetics/Climate/Politics + Textsorten
+   ========================================================== */
+const CARDS = [
+  // ===================== VOCAB (DE -> EN) =====================
+  {id:"V01", rubric:"VOCAB", front:"Überwachung", back:"surveillance", alts:["monitoring"], note:"Key word for dystopian control."},
+  {id:"V02", rubric:"VOCAB", front:"Datenschutz", back:"data privacy", alts:["privacy protection"], note:"Connected to big data + surveillance."},
+  {id:"V03", rubric:"VOCAB", front:"Daten ausnutzen", back:"to exploit data", alts:["to misuse data"], note:"Companies/governments may exploit personal data."},
+  {id:"V04", rubric:"VOCAB", front:"künstliche Intelligenz", back:"artificial intelligence (AI)", alts:["AI"], note:"Opportunity + threat."},
+  {id:"V05", rubric:"VOCAB", front:"datengetrieben", back:"data-driven", alts:[], note:"e.g., data-driven control."},
+  {id:"V06", rubric:"VOCAB", front:"Freiheit des Einzelnen", back:"individual freedom", alts:["personal freedom"], note:"Often limited in dystopias."},
+  {id:"V07", rubric:"VOCAB", front:"Entscheidungsfähigkeit", back:"decision-making ability", alts:["ability to make decisions"], note:"Often reduced by control."},
+  {id:"V08", rubric:"VOCAB", front:"Manipulation", back:"manipulation", alts:[], note:"Propaganda + misinformation."},
+  {id:"V09", rubric:"VOCAB", front:"Propaganda", back:"propaganda", alts:[], note:"Typical in authoritarian systems."},
+  {id:"V10", rubric:"VOCAB", front:"autoritäres System", back:"authoritarian system", alts:["autocratic regime"], note:"Oppression, restricted rights."},
+  {id:"V11", rubric:"VOCAB", front:"totalitär", back:"totalitarian", alts:[], note:"Even stronger: total control."},
+  {id:"V12", rubric:"VOCAB", front:"Unterdrückung", back:"oppression", alts:["suppression"], note:"Oppression of rights/individuality."},
+  {id:"V13", rubric:"VOCAB", front:"Widerstandsgruppe", back:"resistance group", alts:["underground movement"], note:"Common in dystopian plots."},
+
+  {id:"V14", rubric:"VOCAB", front:"vielversprechend", back:"promising", alts:["encouraging"], note:"Evaluation word."},
+  {id:"V15", rubric:"VOCAB", front:"beunruhigend", back:"disconcerting", alts:["worrying"], note:"Good counterpart to 'promising'."},
+  {id:"V16", rubric:"VOCAB", front:"beispiellos", back:"unprecedented", alts:["never seen before"], note:"For tech breakthroughs."},
+  {id:"V17", rubric:"VOCAB", front:"Konsequenzen", back:"consequences", alts:["implications"], note:"Academic word."},
+  {id:"V18", rubric:"VOCAB", front:"Auswirkungen", back:"impact", alts:["effects"], note:"impact on society."},
+
+  {id:"V19", rubric:"VOCAB", front:"Gentechnik", back:"genetic engineering", alts:["gene technology"], note:"Central topic."},
+  {id:"V20", rubric:"VOCAB", front:"Gen-Editierung", back:"gene editing", alts:[], note:"Often linked to CRISPR."},
+  {id:"V21", rubric:"VOCAB", front:"DNA verändern", back:"to edit DNA", alts:["to alter DNA"], note:"Strong verb."},
+  {id:"V22", rubric:"VOCAB", front:"Erbgut", back:"genetic makeup", alts:["genetic material"], note:"Ethics debates."},
+  {id:"V23", rubric:"VOCAB", front:"vorgeburtlich", back:"prenatal", alts:["before birth"], note:"Used with genetic tests/choices."},
+  {id:"V24", rubric:"VOCAB", front:"Designer-Babys", back:"designer babies", alts:[], note:"Key ethical fear."},
+  {id:"V25", rubric:"VOCAB", front:"ethische Bedenken", back:"ethical concerns", alts:["moral concerns"], note:"Use in commentary/analysis."},
+  {id:"V26", rubric:"VOCAB", front:"Gleichheit", back:"equality", alts:["egalitarianism"], note:"Utopian ideal."},
+  {id:"V27", rubric:"VOCAB", front:"soziale Ungleichheit", back:"social inequality", alts:["unequal opportunities"], note:"Risk of new tech."},
+
+  {id:"V28", rubric:"VOCAB", front:"Klimakrise", back:"climate crisis", alts:["climate emergency"], note:"Future concern."},
+  {id:"V29", rubric:"VOCAB", front:"nachhaltig", back:"sustainable", alts:["eco-friendly"], note:"Utopian solutions."},
+  {id:"V30", rubric:"VOCAB", front:"CO₂-Emissionen", back:"CO2 emissions", alts:["carbon emissions"], note:"Climate solutions."},
+  {id:"V31", rubric:"VOCAB", front:"Überschwemmung", back:"flood", alts:["flooding"], note:"Extreme weather."},
+  {id:"V32", rubric:"VOCAB", front:"Dürre", back:"drought", alts:[], note:"Impacts agriculture."},
+  {id:"V33", rubric:"VOCAB", front:"Waldbrand", back:"wildfire", alts:["forest fire"], note:"Apocalyptic landscape."},
+  {id:"V34", rubric:"VOCAB", front:"Hitzewelle", back:"heatwave", alts:["heat wave"], note:"Raises death rates."},
+  {id:"V35", rubric:"VOCAB", front:"Hungersnot", back:"famine", alts:[], note:"Could result from droughts."},
+  {id:"V36", rubric:"VOCAB", front:"apokalyptisch", back:"apocalyptic", alts:["post-apocalyptic"], note:"Common setting word."},
+  {id:"V37", rubric:"VOCAB", front:"unbewohnbar", back:"uninhabitable", alts:[], note:"Uninhabitable regions."},
+
+  {id:"V38", rubric:"VOCAB", front:"Pandemie", back:"pandemic", alts:[], note:"Future risk scenario."},
+  {id:"V39", rubric:"VOCAB", front:"Ausbruch (Virus)", back:"outbreak", alts:["viral outbreak"], note:"Reporting word."},
+  {id:"V40", rubric:"VOCAB", front:"ansteckend", back:"contagious", alts:["infectious"], note:"Useful adjective."},
+  {id:"V41", rubric:"VOCAB", front:"Todesopfer", back:"death toll", alts:[], note:"Non-fiction reporting."},
+
+  {id:"V42", rubric:"VOCAB", front:"Utopie", back:"utopia", alts:["ideal society"], note:"Idealised vision."},
+  {id:"V43", rubric:"VOCAB", front:"Dystopie", back:"dystopia", alts:["dystopian society"], note:"Warning scenario."},
+  {id:"V44", rubric:"VOCAB", front:"dystopische Szenerie", back:"dystopian setting", alts:[], note:"Setting = environment/world."},
+  {id:"V45", rubric:"VOCAB", front:"Gegenwartsbezug", back:"connection to the present", alts:["links to current issues"], note:"Extrapolation of current trends."},
+
+  // ===================== ADV (Transitions + Advanced Vocabulary) =====================
+  {id:"A01", rubric:"ADV", front:"Contrast (Gegensatz)", back:"However, … / In contrast, …", alts:["Nevertheless, …"], note:"Clean contrast."},
+  {id:"A02", rubric:"ADV", front:"Addition (Zusatz)", back:"Moreover, … / In addition, …", alts:["Furthermore, …"], note:"Add arguments."},
+  {id:"A03", rubric:"ADV", front:"Example (Beispiel)", back:"For instance, … / A case in point is …", alts:["For example, …"], note:"Support claims."},
+  {id:"A04", rubric:"ADV", front:"Cause → effect", back:"As a result, … / Therefore, …", alts:["Consequently, …"], note:"Cause-effect."},
+  {id:"A05", rubric:"ADV", front:"Academic consequence", back:"This results in …", alts:["This leads to …"], note:"Upgraded phrasing."},
+  {id:"A06", rubric:"ADV", front:"Hedging (vorsichtig)", back:"It seems that … / It may be that …", alts:["It is likely that …"], note:"Mature tone."},
+  {id:"A07", rubric:"ADV", front:"Emphasis (betonen)", back:"This highlights … / This underlines …", alts:["This emphasises …"], note:"Analyse effect."},
+
+  {id:"A08", rubric:"ADV", front:"Positive evaluation", back:"beneficial / promising", alts:["advantageous"], note:"Better than 'good'."},
+  {id:"A09", rubric:"ADV", front:"Negative evaluation", back:"problematic / harmful", alts:["damaging"], note:"Better than 'bad'."},
+  {id:"A10", rubric:"ADV", front:"Big change/impact", back:"significant / considerable", alts:["substantial"], note:"Formal intensifier."},
+  {id:"A11", rubric:"ADV", front:"Importance", back:"crucial / essential", alts:["vital"], note:"Key points."},
+
+  {id:"A12", rubric:"ADV", front:"Analyse-Verb: darstellen", back:"to portray / to depict", alts:["to present"], note:"Author portrays X as Y."},
+  {id:"A13", rubric:"ADV", front:"Analyse-Verb: kritisieren", back:"to criticise", alts:["to condemn"], note:"Social critique."},
+  {id:"A14", rubric:"ADV", front:"Analyse-Verb: warnen", back:"to warn against", alts:["to caution against"], note:"Dystopia function."},
+  {id:"A15", rubric:"ADV", front:"Argument-Verb: argumentieren", back:"to argue / to claim", alts:["to maintain"], note:"Argumentative texts."},
+
+  {id:"A16", rubric:"ADV", front:"Chunk (dystopian tech)", back:"a tool of control rather than progress", alts:["used to monitor and restrict citizens"], note:"Perfect phrase."},
+  {id:"A17", rubric:"ADV", front:"Chunk (freedom)", back:"to limit individual freedom", alts:["to undermine autonomy"], note:"Use with surveillance."},
+  {id:"A18", rubric:"ADV", front:"Chunk (privacy)", back:"to violate data privacy", alts:["to collect data without consent"], note:"Modern issue."},
+  {id:"A19", rubric:"ADV", front:"Chunk (genetics ethics)", back:"raises serious ethical concerns", alts:["sparks a moral debate"], note:"CRISPR/genetics."},
+  {id:"A20", rubric:"ADV", front:"Chunk (atmosphere)", back:"a gloomy, foreboding atmosphere", alts:["a sense of doom"], note:"Fiction analysis."},
+  {id:"A21", rubric:"ADV", front:"Chunk (extrapolation)", back:"to extrapolate current trends into the future", alts:["to project current developments"], note:"Key dystopia line."},
+  {id:"A22", rubric:"ADV", front:"Interpretation connector", back:"This suggests that …", alts:["This indicates that …"], note:"Good interpretation starter."},
+
+  // ===================== STARTERS =====================
+  {id:"S01", rubric:"STARTERS", front:"Vorteil einleiten", back:"One major advantage is that …", alts:["A key advantage is that …"], note:"Argumentation."},
+  {id:"S02", rubric:"STARTERS", front:"Nachteil einleiten", back:"A serious drawback is that …", alts:["One major disadvantage is that …"], note:"Argumentation."},
+  {id:"S03", rubric:"STARTERS", front:"Pro/Contra", back:"On the one hand …, on the other hand …", alts:["While …, …"], note:"Balanced writing."},
+  {id:"S04", rubric:"STARTERS", front:"Ethische Bedenken", back:"This development raises ethical concerns because …", alts:["This raises moral questions because …"], note:"Genetics/tech ethics."},
+  {id:"S05", rubric:"STARTERS", front:"Folge/Konsequenz", back:"This could lead to …", alts:["This may result in …"], note:"Cause/effect."},
+  {id:"S06", rubric:"STARTERS", front:"Text einordnen", back:"The text can be classified as … because …", alts:[], note:"Use dystopian/argumentative etc."},
+  {id:"S07", rubric:"STARTERS", front:"Intention", back:"The author’s aim is to …", alts:["The text intends to …"], note:"Purpose/intention."},
+  {id:"S08", rubric:"STARTERS", front:"Bezug zur Gegenwart", back:"This reflects current concerns about …", alts:["This mirrors today’s issues such as …"], note:"Fiction ↔ real world."},
+  {id:"S09", rubric:"STARTERS", front:"Zusammenfassung", back:"To sum up, … / In conclusion, …", alts:["Overall, …"], note:"Strong endings."},
+  {id:"S10", rubric:"STARTERS", front:"Analyse (Atmosphäre/Setting)", back:"The gloomy atmosphere and apocalyptic setting create …", alts:["This creates a sense of …"], note:"Effect-focused analysis."},
+
+  // ===================== TEXT (Cheat Sheets) =====================
+  {id:"T01", rubric:"TEXT", front:"Utopia – Cheat Sheet", back:"Definition + idea", alts:[], note:
+"• Utopia = ideal society / positive vision.\n• Often based on equality, harmony, reason.\n• Can indirectly criticise the present by contrast."},
+  {id:"T02", rubric:"TEXT", front:"Dystopia – Cheat Sheet", back:"Definition + function", alts:[], note:
+"• Dystopia = negative future society.\n• Extrapolates current trends.\n• Function: warning about consequences (tech/politics/climate)."},
+  {id:"T03", rubric:"TEXT", front:"Typical dystopian features", back:"Fast list", alts:[], note:
+"• oppressive/authoritarian government\n• surveillance + loss of privacy\n• limited freedom\n• propaganda/manipulation\n• advanced tech used for control\n• gloomy/apocalyptic setting\n• resistance groups"},
+  {id:"T04", rubric:"TEXT", front:"Non-fiction types (4)", back:"Names + purpose", alts:[], note:
+"1) Descriptive: neutral description.\n2) Narrative: reports events (who/what/when/where/why/how).\n3) Expository: explains facts in a matter-of-fact way.\n4) Argumentative: persuades; controversial topic + line of argument."},
+  {id:"T05", rubric:"TEXT", front:"Argumentative structure", back:"3-part model", alts:[], note:
+"• Introduction: topic/claim.\n• Main part: arguments (+ examples; sometimes counter-arguments + refutation).\n• Conclusion: summary + final stance."},
+  {id:"T06", rubric:"TEXT", front:"Text structures (3)", back:"listing/progressive/antithetical", alts:[], note:
+"• Listing: points one after another (firstly, secondly…).\n• Progressive: cause→effect or problem→solution.\n• Antithetical: contrasts two sides (on the one hand…)."},
+  {id:"T07", rubric:"TEXT", front:"Mediation (NRW) – gold rules", back:"Do/Don’t", alts:[], note:
+"✅ Paraphrase, don’t translate word-for-word.\n✅ Focus on what the task asks.\n✅ Adapt to the target audience.\n✅ Use required text type (email/article).\n❌ Don’t copy German sentence structure."},
+  {id:"T08", rubric:"TEXT", front:"Analyseplan dystopian fiction (mini)", back:"Step plan", alts:[], note:
+"1) Classify as dystopian fiction.\n2) Identify features (surveillance, oppression, setting, tech).\n3) Explain effects (fear, loss of freedom, manipulation).\n4) Connect to current issues.\n5) Conclude: warning/intention."},
+];
+
+/* ==========================================================
+   STATE + STORAGE
+   ========================================================== */
+const STORAGE_KEY = "english_q1_fullsite_v1";
+const $ = (id)=>document.getElementById(id);
+
+const els = {
+  rubricSelect: $("rubricSelect"),
+  shuffleToggle: $("shuffleToggle"),
+  repeatHardToggle: $("repeatHardToggle"),
+  goLearnBtn: $("goLearnBtn"),
+  goQuizBtn: $("goQuizBtn"),
+  homeBtn: $("homeBtn"),
+  restartBtn: $("restartBtn"),
+  resetBtn: $("resetBtn"),
+  helpBtn: $("helpBtn"),
+
+  downloadMasterBtn: $("downloadMasterBtn"),
+  masterDownloadStatus: $("masterDownloadStatus"),
+
+  progressNum: $("progressNum"),
+  rightNum: $("rightNum"),
+  hardNum: $("hardNum"),
+  modeNum: $("modeNum"),
+
+  homeView: $("homeView"),
+  helpView: $("helpView"),
+  learnView: $("learnView"),
+  quizView: $("quizView"),
+
+  card: $("card"),
+  badge: $("badge"),
+  indexTag: $("indexTag"),
+  frontText: $("frontText"),
+  backText: $("backText"),
+  altTag: $("altTag"),
+  noteText: $("noteText"),
+
+  prevBtn: $("prevBtn"),
+  nextBtn: $("nextBtn"),
+  flipBtn: $("flipBtn"),
+  markKnownBtn: $("markKnownBtn"),
+  markHardBtn: $("markHardBtn"),
+
+  quizBadge: $("quizBadge"),
+  quizIndexTag: $("quizIndexTag"),
+  quizPrompt: $("quizPrompt"),
+  answerInput: $("answerInput"),
+  checkBtn: $("checkBtn"),
+  showBtn: $("showBtn"),
+  skipBtn: $("skipBtn"),
+  feedback: $("feedback"),
+  markRightBtn: $("markRightBtn"),
+  markWrongBtn: $("markWrongBtn"),
+  quizPrevBtn: $("quizPrevBtn"),
+  quizNextBtn: $("quizNextBtn"),
+
+  quickAdvQuiz: $("quickAdvQuiz"),
+  quickStartersLearn: $("quickStartersLearn"),
+  quickTextLearn: $("quickTextLearn"),
+  quickVocabQuiz: $("quickVocabQuiz"),
+  backFromHelpBtn: $("backFromHelpBtn"),
+};
+
+let state = {
+  mode: "HOME", // HOME | HELP | LEARN | QUIZ
+  rubric: "VOCAB",
+  shuffle: true,
+  repeatHard: false,
+  pool: [],
+  index: 0,
+  flipped: false,
+  right: 0,
+  seen: {},
+  hard: {}, // cardId -> true
+};
+
+function save(){ try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }catch(e){} }
+function load(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return;
+    const s = JSON.parse(raw);
+    state = {...state, ...s};
+  }catch(e){}
+}
+
+function rubricLabel(r){
+  if(r==="VOCAB") return {name:"Vokabeln", cls:"vocab"};
+  if(r==="ADV") return {name:"Advanced Vocab", cls:"adv"};
+  if(r==="STARTERS") return {name:"Starters", cls:"starters"};
+  if(r==="TEXT") return {name:"Textsorten", cls:"text"};
+  return {name:"Mix", cls:"mix"};
+}
+
+function normalize(str){
+  return (str||"").toLowerCase()
+    .replace(/[“”"']/g,"")
+    .replace(/[…]/g,"...")
+    .replace(/[^a-z0-9äöüß\s\.\-\/]/gi," ")
+    .replace(/\s+/g," ")
+    .trim();
+}
+function levenshtein(a,b){
+  a=normalize(a); b=normalize(b);
+  const m=a.length,n=b.length;
+  if(!m) return n; if(!n) return m;
+  const dp=Array.from({length:m+1},()=>Array(n+1).fill(0));
+  for(let i=0;i<=m;i++) dp[i][0]=i;
+  for(let j=0;j<=n;j++) dp[0][j]=j;
+  for(let i=1;i<=m;i++){
+    for(let j=1;j<=n;j++){
+      const cost = a[i-1]===b[j-1] ? 0 : 1;
+      dp[i][j]=Math.min(dp[i-1][j]+1, dp[i][j-1]+1, dp[i-1][j-1]+cost);
+    }
+  }
+  return dp[m][n];
+}
+function similarity(a,b){
+  a=normalize(a); b=normalize(b);
+  const maxLen=Math.max(a.length,b.length);
+  if(maxLen===0) return 1;
+  return 1 - (levenshtein(a,b)/maxLen);
+}
+function expectedAnswers(card){
+  const list = [card.back, ...(card.alts||[])].filter(Boolean);
+  let out=[];
+  for(const ans of list){
+    const parts = ans.split("/").map(s=>s.trim()).filter(Boolean);
+    if(parts.length>1) out.push(...parts);
+    else out.push(ans);
+  }
+  out = out.map(s=>s.replace("…","..."));
+  return [...new Set(out)];
+}
+
+/* ==========================================================
+   POOL + NAVIGATION
+   ========================================================== */
+function buildPool(){
+  let cards = CARDS.slice();
+  const r = state.rubric;
+
+  if(r !== "ALL"){
+    cards = cards.filter(c=>c.rubric===r);
+  }
+
+  if(state.shuffle){
+    for(let i=cards.length-1;i>0;i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
+  }
+
+  state.pool = cards;
+  state.index = 0;
+  state.flipped = false;
+  save();
+  render();
+}
+
+function currentCard(){ return state.pool[state.index] || null; }
+
+function setView(mode){
+  state.mode = mode;
+  els.homeView.classList.toggle("on", mode==="HOME");
+  els.helpView.classList.toggle("on", mode==="HELP");
+  els.learnView.classList.toggle("on", mode==="LEARN");
+  els.quizView.classList.toggle("on", mode==="QUIZ");
+  els.modeNum.textContent = mode==="HOME" ? "Start" : (mode==="HELP" ? "Anleitung" : (mode==="LEARN" ? "Lernen" : "Quiz"));
+  save();
+  render();
+}
+
+function flip(){
+  if(state.mode!=="LEARN") return;
+  state.flipped = !state.flipped;
+  els.card.classList.toggle("flipped", state.flipped);
+  save();
+}
+
+function next(){
+  if(!state.pool.length) return;
+
+  if(state.repeatHard){
+    const start = state.index;
+    let found = false;
+    do{
+      state.index = (state.index + 1) % state.pool.length;
+      const c = currentCard();
+      if(c && state.hard[c.id]){ found=true; break; }
+    }while(state.index !== start);
+    if(!found){
+      state.index = (start + 1) % state.pool.length;
+    }
+  }else{
+    state.index = (state.index + 1) % state.pool.length;
+  }
+
+  state.flipped = false;
+  els.card.classList.remove("flipped");
+
+  const c = currentCard();
+  if(c) state.seen[c.id]=true;
+
+  if(state.mode==="QUIZ"){
+    els.answerInput.value="";
+    els.feedback.className="feedback";
+    els.feedback.textContent="Antwort eingeben und prüfen.";
+  }
+
+  save();
+  render();
+}
+
+function prev(){
+  if(!state.pool.length) return;
+  state.index = (state.index - 1 + state.pool.length) % state.pool.length;
+  state.flipped = false;
+  els.card.classList.remove("flipped");
+  const c = currentCard();
+  if(c) state.seen[c.id]=true;
+  if(state.mode==="QUIZ"){
+    els.answerInput.value="";
+    els.feedback.className="feedback";
+    els.feedback.textContent="Antwort eingeben und prüfen.";
+  }
+  save();
+  render();
+}
+
+function markKnown(){
+  const c=currentCard(); if(!c) return;
+  delete state.hard[c.id];
+  state.right += 1;
+  state.seen[c.id]=true;
+  save(); render(); next();
+}
+function markHard(){
+  const c=currentCard(); if(!c) return;
+  state.hard[c.id]=true;
+  state.seen[c.id]=true;
+  save(); render(); next();
+}
+
+/* ==========================================================
+   QUIZ
+   ========================================================== */
+function showSolution(){
+  const c=currentCard(); if(!c) return;
+  els.feedback.className="feedback";
+  els.feedback.textContent = `Lösung: ${c.back}` + ((c.alts&&c.alts.length)?`\nAlternativen: ${c.alts.join(" • ")}`:"");
+}
+
+function checkAnswer(){
+  const c=currentCard(); if(!c) return;
+  const user = els.answerInput.value.trim();
+  if(!user){
+    els.feedback.className="feedback bad";
+    els.feedback.textContent="Bitte erst eine Antwort eingeben.";
+    return;
+  }
+
+  const exp = expectedAnswers(c);
+  const userN = normalize(user);
+
+  let bestSim = 0;
+  for(const e of exp){
+    const sim = similarity(user, e);
+    if(sim > bestSim) bestSim=sim;
+  }
+  const containsOk = exp.some(e => normalize(e).includes(userN) || userN.includes(normalize(e)));
+  const ok = (bestSim >= 0.72) || containsOk;
+
+  if(ok){
+    els.feedback.className="feedback good";
+    els.feedback.textContent = `✅ Richtig (oder sehr nah dran)\n\nDu: ${user}\nErwartet: ${c.back}`;
+    state.right += 1;
+    delete state.hard[c.id];
+  }else{
+    els.feedback.className="feedback bad";
+    els.feedback.textContent = `❌ Noch nicht\n\nDu: ${user}\nErwartet: ${c.back}\n\nTipp: Schreib nur die Kernphrase.`;
+    state.hard[c.id]=true;
+  }
+
+  state.seen[c.id]=true;
+  save();
+  render();
+}
+
+/* ==========================================================
+   MASTER DOWNLOAD (locked)
+   ========================================================== */
+const MASTER_REQUIRED_RIGHT = 35;
+const MASTER_REQUIRED_SEEN = 70;
+
+function countSeenTotal(){ return Object.keys(state.seen || {}).length; }
+function isMasterUnlocked(){ return (state.right >= MASTER_REQUIRED_RIGHT) && (countSeenTotal() >= MASTER_REQUIRED_SEEN); }
+
+function formatSectionTitle(title){
+  return "\n" + title + "\n" + "-".repeat(Math.max(10, title.length)) + "\n";
+}
+
+function buildMasterCheatSheetText(){
+  const byRubric = {
+    VOCAB: CARDS.filter(c => c.rubric === "VOCAB").slice().sort((a,b)=> (a.id||"").localeCompare(b.id||"")),
+    ADV: CARDS.filter(c => c.rubric === "ADV").slice().sort((a,b)=> (a.id||"").localeCompare(b.id||"")),
+    STARTERS: CARDS.filter(c => c.rubric === "STARTERS").slice().sort((a,b)=> (a.id||"").localeCompare(b.id||"")),
+    TEXT: CARDS.filter(c => c.rubric === "TEXT").slice().sort((a,b)=> (a.id||"").localeCompare(b.id||"")),
+  };
+
+  const lines = [];
+  lines.push("ENGLISCH Q1 – MASTER-LERNZETTEL");
+  lines.push("Utopia/Dystopia • Technology • Genetics • Climate • Klausursprache • Textsorten • Mediation");
+  lines.push("==============================================================");
+  lines.push("");
+  lines.push(`Inhalte: Vokabeln (${byRubric.VOCAB.length}) | Advanced (${byRubric.ADV.length}) | Starters (${byRubric.STARTERS.length}) | Textsorten (${byRubric.TEXT.length})`);
+  lines.push("");
+
+  lines.push(formatSectionTitle("1) VOKABELN (DE → EN)"));
+  lines.push("Lernstrategie: 10–15 Wörter → sofort 3 Sätze bauen.");
+  lines.push("");
+  for(const c of byRubric.VOCAB){
+    const alts = (c.alts && c.alts.length) ? ` (Alt: ${c.alts.join(", ")})` : "";
+    lines.push(`• ${c.front} → ${c.back}${alts}`);
+  }
+
+  lines.push(formatSectionTitle("2) ADVANCED VOCAB & TRANSITIONS"));
+  lines.push("Ziel: bessere Übergänge + akademischer Ausdruck (cause/effect, contrast, hedging, evaluation).");
+  lines.push("");
+  for(const c of byRubric.ADV){
+    const alts = (c.alts && c.alts.length) ? ` | Alt: ${c.alts.join(" • ")}` : "";
+    lines.push(`• ${c.front} → ${c.back}${alts}`);
+  }
+
+  lines.push(formatSectionTitle("3) SENTENCE STARTERS"));
+  lines.push("Ziel: du startest Sätze sauber und klingst strukturiert.");
+  lines.push("");
+  for(const c of byRubric.STARTERS){
+    const alts = (c.alts && c.alts.length) ? ` | Alt: ${c.alts.join(" • ")}` : "";
+    lines.push(`• ${c.front}: ${c.back}${alts}`);
+  }
+
+  lines.push(formatSectionTitle("4) TEXTSORTEN & CHEAT SHEETS"));
+  lines.push("Ziel: Text erkennen + Struktur/Intention erklären.");
+  lines.push("");
+  for(const c of byRubric.TEXT){
+    lines.push(`• ${c.front}`);
+    lines.push(`  - ${c.back}`);
+    if(c.note){
+      const noteLines = String(c.note).split("\n").map(x=>x.trim()).filter(Boolean);
+      for(const nl of noteLines){
+        lines.push(`  - ${nl}`);
+      }
+    }
+    lines.push("");
+  }
+
+  lines.push(formatSectionTitle("5) MINI-KLAUSURFORMELN"));
+  lines.push("• The text can be classified as dystopian fiction because … (surveillance/oppression/setting/tech).");
+  lines.push("• The author extrapolates current trends into the future to warn about …");
+  lines.push("• The gloomy atmosphere and apocalyptic setting create a sense of doom and hopelessness.");
+  lines.push("• Use: however / moreover / as a result / to some extent / it seems that …");
+  lines.push("• Mediation: paraphrase, focus on task, adapt to audience (no word-for-word).");
+  lines.push("");
+
+  return lines.join("\n");
+}
+
+function downloadTextFile(filename, text){
+  const blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+function updateMasterDownloadUI(){
+  const ok = isMasterUnlocked();
+  els.downloadMasterBtn.disabled = !ok;
+
+  const seenTotal = countSeenTotal();
+  if(ok){
+    els.masterDownloadStatus.textContent = "✅ Freigeschaltet! Du kannst jetzt den kompletten Master-Lernzettel downloaden.";
+  }else{
+    els.masterDownloadStatus.textContent =
+      `🔒 Noch gesperrt: ${state.right}/${MASTER_REQUIRED_RIGHT} richtig • ${seenTotal}/${MASTER_REQUIRED_SEEN} Karten gesehen.`;
+  }
+}
+
+/* ==========================================================
+   RENDER
+   ========================================================== */
+function updateStats(){
+  const total = state.pool.length || 0;
+  const seenCount = Object.keys(state.seen||{}).length;
+  els.progressNum.textContent = `${Math.min(seenCount, total)} / ${total}`;
+  els.rightNum.textContent = state.right;
+  els.hardNum.textContent = Object.keys(state.hard||{}).length;
+}
+
+function render(){
+  els.rubricSelect.value = state.rubric;
+  els.shuffleToggle.checked = !!state.shuffle;
+  els.repeatHardToggle.checked = !!state.repeatHard;
+
+  if(!state.pool || !state.pool.length){
+    buildPool();
+    return;
+  }
+
+  const c = currentCard();
+  if(!c){ updateStats(); updateMasterDownloadUI(); return; }
+
+  state.seen[c.id]=true;
+
+  const rb = rubricLabel(c.rubric);
+  els.badge.textContent = rb.name;
+  els.badge.className = "badge " + rb.cls;
+  els.quizBadge.textContent = rb.name;
+  els.quizBadge.className = "badge " + rb.cls;
+
+  els.indexTag.textContent = `${state.index+1} / ${state.pool.length}`;
+  els.frontText.textContent = c.front;
+  els.backText.textContent = c.back;
+  els.altTag.textContent = (c.alts && c.alts.length) ? `Alt: ${c.alts.join(" • ")}` : "";
+  els.noteText.textContent = c.note ? `Note: ${c.note}` : "";
+  els.card.classList.toggle("flipped", !!state.flipped);
+
+  els.quizIndexTag.textContent = `${state.index+1} / ${state.pool.length}`;
+  els.quizPrompt.textContent = c.front;
+
+  updateStats();
+  updateMasterDownloadUI();
+}
+
+/* ==========================================================
+   EVENTS
+   ========================================================== */
+els.rubricSelect.addEventListener("change", ()=>{ state.rubric = els.rubricSelect.value; save(); buildPool(); });
+els.shuffleToggle.addEventListener("change", ()=>{ state.shuffle = els.shuffleToggle.checked; save(); buildPool(); });
+els.repeatHardToggle.addEventListener("change", ()=>{ state.repeatHard = els.repeatHardToggle.checked; save(); });
+
+els.goLearnBtn.addEventListener("click", ()=> setView("LEARN"));
+els.goQuizBtn.addEventListener("click", ()=>{ setView("QUIZ"); setTimeout(()=>els.answerInput.focus(), 80); });
+
+els.homeBtn.addEventListener("click", ()=> setView("HOME"));
+els.restartBtn.addEventListener("click", ()=> buildPool());
+els.resetBtn.addEventListener("click", ()=>{
+  state.right=0; state.seen={}; state.hard={}; state.index=0; state.flipped=false;
+  save(); buildPool(); setView("HOME");
+});
+
+els.helpBtn.addEventListener("click", ()=> setView("HELP"));
+els.backFromHelpBtn.addEventListener("click", ()=> setView("HOME"));
+
+els.card.addEventListener("click", ()=> flip());
+els.flipBtn.addEventListener("click", ()=> flip());
+els.nextBtn.addEventListener("click", ()=> next());
+els.prevBtn.addEventListener("click", ()=> prev());
+els.markKnownBtn.addEventListener("click", ()=> markKnown());
+els.markHardBtn.addEventListener("click", ()=> markHard());
+
+els.checkBtn.addEventListener("click", ()=> checkAnswer());
+els.showBtn.addEventListener("click", ()=> showSolution());
+els.skipBtn.addEventListener("click", ()=> next());
+els.markRightBtn.addEventListener("click", ()=> { state.right++; const c=currentCard(); if(c) delete state.hard[c.id]; state.seen[c.id]=true; save(); render(); next(); });
+els.markWrongBtn.addEventListener("click", ()=> { const c=currentCard(); if(c) state.hard[c.id]=true; state.seen[c.id]=true; save(); render(); next(); });
+els.quizNextBtn.addEventListener("click", ()=> next());
+els.quizPrevBtn.addEventListener("click", ()=> prev());
+
+els.answerInput.addEventListener("keydown", (e)=>{ if(e.key==="Enter"){ e.preventDefault(); checkAnswer(); } });
+
+document.addEventListener("keydown", (e)=>{
+  if(e.target && (e.target.tagName==="INPUT" || e.target.tagName==="SELECT")) return;
+  if(e.key===" "){ e.preventDefault(); flip(); }
+  else if(e.key==="ArrowRight"){ next(); }
+  else if(e.key==="ArrowLeft"){ prev(); }
+});
+
+els.quickAdvQuiz.addEventListener("click", ()=>{
+  state.rubric="ADV"; save(); buildPool(); setView("QUIZ"); setTimeout(()=>els.answerInput.focus(), 80);
+});
+els.quickStartersLearn.addEventListener("click", ()=>{
+  state.rubric="STARTERS"; save(); buildPool(); setView("LEARN");
+});
+els.quickTextLearn.addEventListener("click", ()=>{
+  state.rubric="TEXT"; save(); buildPool(); setView("LEARN");
+});
+els.quickVocabQuiz.addEventListener("click", ()=>{
+  state.rubric="VOCAB"; save(); buildPool(); setView("QUIZ"); setTimeout(()=>els.answerInput.focus(), 80);
+});
+
+els.downloadMasterBtn.addEventListener("click", ()=>{
+  if(!isMasterUnlocked()){ updateMasterDownloadUI(); return; }
+  const text = buildMasterCheatSheetText();
+  downloadTextFile("Q1_Master_Lernzettel.txt", text);
+});
+
+/* init */
+load();
+if(!state.rubric) state.rubric="VOCAB";
+buildPool();
+setView(state.mode || "HOME");
+render();
+</script>
+</body>
+</html>
