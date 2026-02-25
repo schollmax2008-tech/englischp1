@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Impostor Vibe Cards 🎴 (Light)</title>
+  <style>
+    :root{
+      --bg1:#f6f7ff; --bg2:#ffffff;
+      --panel: rgba(255,255,255,.78);
+      --border: rgba(15,23,42,.10);
+      --text:#0b1220;
+      --muted: rgba(11,18,32,.65);
+      --muted2: rgba(11,18,32,.50);
+      --accent1:#6d5cff; --accent2:#20d3ee;
+      --danger:#ff2f6d;
+      --shadow: 0 14px 42px rgba(17,24,39,.12);
+      --shadow2: 0 10px 24px rgba(17,24,39,.10);
+      --radius: 18px;
+    }
+    *{ box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 15% 10%, rgba(109,92,255,.18), transparent 60%),
+        radial-gradient(860px 560px at 90% 25%, rgba(32,211,238,.16), transparent 60%),
+        radial-gradient(900px 600px at 40% 110%, rgba(255,47,109,.08), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      display:flex; justify-content:center;
+      padding: max(14px, env(safe-area-inset-top)) 14px max(14px, env(safe-area-inset-bottom));
+    }
+    .wrap{ width:min(980px, 100%); display:grid; gap:12px; }
+    header{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.70));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px 14px 12px;
+      position:relative; overflow:hidden;
+      backdrop-filter: blur(10px);
+    }
+    header:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(680px 220px at 15% 0%, rgba(109,92,255,.16), transparent 62%),
+        radial-gradient(680px 240px at 95% 20%, rgba(32,211,238,.14), transparent 62%);
+      pointer-events:none;
+    }
+    header > *{ position:relative; z-index:1; }
+    h1{ margin:0 0 6px; font-size: clamp(20px, 5.6vw, 30px); line-height:1.05; }
+    .sub{ margin:0; color:var(--muted); font-size: 13.5px; line-height:1.35; }
+
+    .grid{ display:grid; gap:12px; grid-template-columns: 1fr; }
+    @media (min-width: 920px){ .grid{ grid-template-columns: 1fr 1.15fr; } }
+
+    .panel{
+      border:1px solid var(--border);
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 14px;
+      backdrop-filter: blur(10px);
+    }
+
+    .row{ display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:10px; }
+    @media (max-width: 420px){ .row{ grid-template-columns: 1fr; } }
+
+    label{ display:block; color:var(--muted); font-size:12.5px; margin-bottom:6px; }
+    input{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.92);
+      color:var(--text);
+      outline:none;
+      font-size: 15px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+    }
+    input:focus{
+      border-color: rgba(109,92,255,.45);
+      box-shadow: 0 0 0 4px rgba(109,92,255,.14);
+    }
+
+    .btns{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+    button{
+      border:0;
+      border-radius: 14px;
+      padding: 12px 14px;
+      cursor:pointer;
+      user-select:none;
+      font-weight:800;
+      font-size: 13.5px;
+      transition: transform .08s ease, filter .18s ease, opacity .18s ease;
+      box-shadow: var(--shadow2);
+    }
+    button:active{ transform: translateY(1px) scale(.99); }
+    button:disabled{ opacity:.55; cursor:not-allowed; }
+    .primary{ background: linear-gradient(135deg, var(--accent1), var(--accent2)); color:white; }
+    .ghost{ background: rgba(255,255,255,.88); border:1px solid var(--border); color: var(--text); }
+    .danger{ background: rgba(255,47,109,.10); border:1px solid rgba(255,47,109,.22); color: #b10f3b; }
+    @media (max-width: 520px){ button{ width:100%; } .btns{ gap:8px; } }
+
+    .hint{
+      margin:10px 0 0;
+      color: var(--muted2);
+      font-size: 12.5px;
+      line-height:1.35;
+      white-space: pre-line;
+    }
+
+    .topRow{
+      display:flex; justify-content:space-between; gap:10px; align-items:center; flex-wrap:wrap;
+      margin-bottom: 10px;
+    }
+    .pills{ display:flex; gap:8px; flex-wrap:wrap; }
+    .pill{
+      font-size: 12px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.88);
+      color: var(--muted);
+      box-shadow: var(--shadow2);
+    }
+    .pill strong{ color: var(--text); }
+
+    .progress{
+      width:100%;
+      height: 10px;
+      border-radius: 999px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.9);
+      box-shadow: var(--shadow2);
+    }
+    .bar{
+      height:100%;
+      width:0%;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      transition: width .35s ease;
+    }
+
+    .cardWrap{ margin-top: 12px; perspective: 1200px; }
+    .card3d{
+      width:100%;
+      min-height: 240px;
+      border-radius: 22px;
+      position:relative;
+      transform-style: preserve-3d;
+      transition: transform .55s cubic-bezier(.2,.8,.2,1);
+    }
+    .card3d.is-revealed{ transform: rotateY(180deg); }
+
+    .face{
+      position:absolute; inset:0;
+      border-radius: 22px;
+      border:1px solid var(--border);
+      box-shadow: var(--shadow);
+      backface-visibility: hidden;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding: 22px 16px;
+    }
+    .front{
+      background:
+        radial-gradient(800px 260px at 20% 0%, rgba(109,92,255,.18), transparent 60%),
+        radial-gradient(800px 280px at 90% 10%, rgba(32,211,238,.16), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.75));
+    }
+    .back{
+      transform: rotateY(180deg);
+      background:
+        radial-gradient(820px 280px at 30% 0%, rgba(109,92,255,.16), transparent 62%),
+        radial-gradient(820px 300px at 90% 10%, rgba(32,211,238,.14), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,255,255,.82));
+    }
+
+    .tapRow{
+      display:flex; align-items:center; gap:10px;
+      color: var(--muted); font-size: 12.5px; margin-top: 10px;
+    }
+    .tapDot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      box-shadow: 0 0 0 6px rgba(109,92,255,.12);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse{ 0%,100%{ transform: scale(1); opacity:1; } 50%{ transform: scale(1.08); opacity:.78; } }
+
+    .kicker{ color: var(--muted); font-size: 12.5px; margin-bottom: 8px; }
+    .word{
+      margin:0;
+      font-weight: 950;
+      letter-spacing:.2px;
+      font-size: clamp(22px, 7vw, 40px);
+      line-height: 1.05;
+      word-break: break-word;
+      animation: pop .42s cubic-bezier(.2,.8,.2,1) both;
+    }
+    @keyframes pop{ from{ opacity:0; transform: translateY(8px) scale(.98);} to{ opacity:1; transform: translateY(0) scale(1);} }
+    .imposter{ color: var(--danger); }
+
+    .smallHint{ margin-top: 10px; color: var(--muted2); font-size: 12.5px; line-height:1.35; }
+
+    .stickyNext{
+      position: sticky; bottom: 10px; margin-top: 12px;
+      display:flex; gap:10px;
+    }
+    @media (max-width: 520px){ .stickyNext{ flex-direction:column; } }
+
+    .toast{
+      position: fixed; left: 50%;
+      bottom: max(14px, env(safe-area-inset-bottom));
+      transform: translateX(-50%);
+      background: rgba(255,255,255,.94);
+      border:1px solid var(--border);
+      box-shadow: var(--shadow);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      opacity:0; pointer-events:none;
+      transition: opacity .25s ease, transform .25s ease;
+    }
+    .toast.show{ opacity:1; transform: translateX(-50%) translateY(-6px); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Impostor Vibe Cards 🎴</h1>
+      <p class="sub">Begriffe so deutsch wie möglich (Genres bleiben). 100 Wörter. Imposter wechselt jede neue Runde (wenn möglich).</p>
+    </header>
+
+    <div class="grid">
+      <section class="panel" aria-label="Setup">
+        <div class="row">
+          <div>
+            <label for="playerCount">Spieleranzahl</label>
+            <input id="playerCount" type="number" min="1" value="5" inputmode="numeric" />
+          </div>
+          <div>
+            <label for="imposterCount">Imposter</label>
+            <input id="imposterCount" type="number" min="0" value="1" inputmode="numeric" />
+          </div>
+        </div>
+        <div class="btns">
+          <button class="primary" id="startBtn">Spiel starten</button>
+          <button class="ghost" id="reshuffleBtn" title="Neues Wort + neue Imposter">Neu mischen</button>
+          <button class="danger" id="resetBtn">Reset</button>
+        </div>
+        <p class="hint" id="setupHint"></p>
+      </section>
+
+      <section class="panel" aria-label="Game">
+        <div class="topRow">
+          <div class="pills">
+            <span class="pill">Spieler: <strong id="pCount">–</strong></span>
+            <span class="pill">Imposter: <strong id="iCount">–</strong></span>
+            <span class="pill">Aktuell: <strong id="currentPlayer">–</strong></span>
+          </div>
+          <div class="pill">Wörter: <strong id="wordCount">100</strong></div>
+        </div>
+
+        <div class="progress" aria-label="Fortschritt">
+          <div class="bar" id="progressBar"></div>
+        </div>
+
+        <div class="cardWrap">
+          <div class="card3d" id="card3d" role="button" tabindex="0" aria-label="Karte umdrehen">
+            <div class="face front">
+              <div class="kicker" id="frontTop">Noch kein Spiel gestartet</div>
+              <div class="word" id="frontWord">Start</div>
+              <div class="tapRow"><span class="tapDot"></span><span id="frontHint">Tippe, um umzudrehen</span></div>
+            </div>
+            <div class="face back">
+              <div class="kicker" id="backTop">—</div>
+              <div class="word" id="backWord">—</div>
+              <div class="smallHint" id="backHint">—</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stickyNext">
+          <button class="ghost" id="flipBtn">Umdrehen</button>
+          <button class="primary" id="nextBtn" disabled>Nächster Spieler</button>
+        </div>
+
+        <div class="smallHint" style="text-align:center; margin-top:8px;">
+          Ablauf: Karte ansehen → wieder verdecken → weitergeben → „Nächster Spieler“.
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">—</div>
+
+  <script>
+    // 100 Begriffe: deutsch so gut wie möglich, Genres bleiben Englisch.
+    // Keine Technikbegriffe (kein "808" etc.). Stattdessen Jahrzehnte/Jahreszahlen & Vibes.
+    const WORDS = [
+      // Genres (20)
+      "House","Techno","Afrobeats","Amapiano","Drill","Trap","R&B","Pop","Indie","Lo-Fi",
+      "Reggaeton","Dancehall","UK Garage","Drum & Bass","Dubstep","Trance","Hardstyle","Hyperpop","Emo Rap","Synthwave",
+
+      // Jahrzehnte / Jahre (20)
+      "80er","90er","2000er","2010er","2016","2017","2018","2019","2020","2021",
+      "2022","2023","2024","2008","2012","2014","2003","1999","1995","1987",
+
+      // Vibes / Situationen (60)
+      "Sommer","Spätsommer","Frühling","Herbst","Winter","Sommernacht","Winterabend","Sonnenuntergang","Sonnenaufgang","Goldene Stunde",
+      "Neon-Nächte","Stadtlichter","Autofahrt nachts","Nachtfahrt","Roadtrip","Urlaub","Balkonabend","Dachterrasse","Strand","Poolparty",
+      "Festival","Club","Afterparty","Hausparty","Vorglühen","TikTok","Radiohit","Ohrwurm","Throwback","Nostalgie",
+      "Herzschmerz","Liebeskummer","Verliebt","Romantisch","Flirt","Freundschaft","Allein sein","Heimweg","3 Uhr nachts","Schlaflos",
+      "Regen","Regennacht","Gewitter","Neblig","Kalt aber schön","Warm und weich","Chill","Entspannt","Gänsehaut","Euphorisch",
+      "Motiviert","Hype","Aggressiv","Dunkle Stimmung","Traurig","Melancholisch","Glücklich","Spicy","Frech","Main Character"
+    ];
+
+    // Elements
+    const wordCountEl = document.getElementById("wordCount");
+    const pcEl = document.getElementById("playerCount");
+    const icEl = document.getElementById("imposterCount");
+    const setupHint = document.getElementById("setupHint");
+
+    const pCount = document.getElementById("pCount");
+    const iCount = document.getElementById("iCount");
+    const curP = document.getElementById("currentPlayer");
+    const bar = document.getElementById("progressBar");
+
+    const card3d = document.getElementById("card3d");
+    const flipBtn = document.getElementById("flipBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    const frontTop = document.getElementById("frontTop");
+    const frontWord = document.getElementById("frontWord");
+    const frontHint = document.getElementById("frontHint");
+
+    const backTop = document.getElementById("backTop");
+    const backWord = document.getElementById("backWord");
+    const backHint = document.getElementById("backHint");
+
+    const startBtn = document.getElementById("startBtn");
+    const reshuffleBtn = document.getElementById("reshuffleBtn");
+    const resetBtn = document.getElementById("resetBtn");
+
+    const toastEl = document.getElementById("toast");
+
+    // State
+    let players = [];
+    let idx = 0;
+    let revealed = false;
+    let lastImposterSet = null;
+
+    wordCountEl.textContent = String(WORDS.length);
+
+    function toast(msg){
+      toastEl.textContent = msg;
+      toastEl.classList.add("show");
+      window.clearTimeout(toastEl._t);
+      toastEl._t = window.setTimeout(()=>toastEl.classList.remove("show"), 1200);
+    }
+
+    function clampInt(n, min){
+      n = Number.isFinite(n) ? Math.floor(n) : min;
+      return Math.max(min, n);
+    }
+
+    function validate(){
+      let pc = clampInt(parseInt(pcEl.value||1, 10), 1);
+      let ic = clampInt(parseInt(icEl.value||0, 10), 0);
+      if (ic > pc) ic = pc;
+      pcEl.value = pc; icEl.value = ic;
+
+      setupHint.textContent =
+        "Regel: Imposter ≤ Spieler.\n" +
+        "Imposter wechselt jede neue Runde (wenn Spieleranzahl > Imposter und Imposter > 0).";
+
+      return {pc, ic};
+    }
+
+    function pickWord(){
+      return WORDS[Math.floor(Math.random() * WORDS.length)];
+    }
+
+    function setProgress(){
+      bar.style.width = players.length ? ((idx / players.length) * 100).toFixed(2) + "%" : "0%";
+    }
+
+    function header(){
+      pCount.textContent = players.length || "–";
+      iCount.textContent = players.filter(x=>x==="IMPOSTER").length || "–";
+      curP.textContent = players.length ? (idx + 1) : "–";
+      setProgress();
+    }
+
+    function pickImposters(playerCount, imposterCount){
+      if (imposterCount === 0) return [];
+      const canForceDifferent = (playerCount > imposterCount);
+
+      const maxTries = 250;
+      for (let t = 0; t < maxTries; t++){
+        const set = new Set();
+        while(set.size < imposterCount){
+          set.add(Math.floor(Math.random() * playerCount));
+        }
+        const arr = Array.from(set).sort((a,b)=>a-b);
+        const key = arr.join(",");
+
+        if (!lastImposterSet) return arr;
+        if (!canForceDifferent) return arr;
+        if (key !== lastImposterSet) return arr;
+      }
+
+      if (imposterCount === 1 && playerCount > 1 && lastImposterSet !== null){
+        const last = parseInt(lastImposterSet, 10);
+        return [(last + 1) % playerCount];
+      }
+      return [];
+    }
+
+    function deal(pc, ic){
+      const w = pickWord();
+      players = Array(pc).fill(w);
+
+      const imposters = pickImposters(pc, ic);
+      if (ic > 0) lastImposterSet = imposters.slice().sort((a,b)=>a-b).join(",");
+
+      for (const i of imposters) players[i] = "IMPOSTER";
+    }
+
+    function setFaceDown(){
+      card3d.classList.remove("is-revealed");
+      revealed = false;
+      nextBtn.disabled = true;
+
+      frontTop.textContent = players.length ? `Spieler ${idx + 1} ist dran` : "Noch kein Spiel gestartet";
+      frontWord.textContent = players.length ? "Tippen" : "Start";
+      frontHint.textContent = players.length ? "Tippe auf Karte oder „Umdrehen“" : "Starte eine Runde";
+
+      backTop.textContent = "—";
+      backWord.textContent = "—";
+      backWord.classList.remove("imposter");
+      backHint.textContent = "—";
+
+      header();
+    }
+
+    function start(){
+      const {pc, ic} = validate();
+      deal(pc, ic);
+      idx = 0;
+      setFaceDown();
+      toast("Runde gestartet");
+    }
+
+    function reshuffle(){
+      const {pc, ic} = validate();
+      if (!players.length){ start(); return; }
+      deal(pc, ic);
+      idx = 0;
+      setFaceDown();
+      toast("Neu gemischt");
+    }
+
+    function resetAll(){
+      players = [];
+      idx = 0;
+      revealed = false;
+      lastImposterSet = null;
+
+      frontTop.textContent = "Noch kein Spiel gestartet";
+      frontWord.textContent = "Start";
+      frontHint.textContent = "Starte eine Runde";
+
+      backTop.textContent = "—";
+      backWord.textContent = "—";
+      backHint.textContent = "—";
+      backWord.classList.remove("imposter");
+
+      card3d.classList.remove("is-revealed");
+      nextBtn.disabled = true;
+      bar.style.width = "0%";
+      header();
+      validate();
+      toast("Reset");
+    }
+
+    function reveal(){
+      if (!players.length) return;
+      if (revealed) return;
+
+      const v = players[idx];
+      backTop.textContent = "Deine Karte";
+
+      if (v === "IMPOSTER"){
+        backWord.textContent = "IMPOSTER";
+        backWord.classList.add("imposter");
+        backHint.textContent = "Pokerface 😈 Tu so, als hättest du ein Wort.";
+      } else {
+        backWord.textContent = v;
+        backWord.classList.remove("imposter");
+        backHint.textContent = "Merken → wieder verdecken → weitergeben.";
+      }
+
+      card3d.classList.add("is-revealed");
+      revealed = true;
+      nextBtn.disabled = false;
+    }
+
+    function flipBack(){
+      if (!players.length) return;
+      card3d.classList.remove("is-revealed");
+    }
+
+    function next(){
+      if (!players.length) return;
+      if (!revealed) { toast("Erst umdrehen"); return; }
+
+      flipBack();
+      idx++;
+
+      if (idx >= players.length){
+        bar.style.width = "100%";
+        curP.textContent = "–";
+        frontTop.textContent = "Runde beendet ✅";
+        frontWord.textContent = "Diskutieren";
+        frontHint.textContent = "Für nächste Runde: „Neu mischen“";
+        nextBtn.disabled = true;
+        revealed = false;
+        toast("Runde vorbei");
+        return;
+      }
+
+      setFaceDown();
+    }
+
+    // Events
+    startBtn.addEventListener("click", start);
+    reshuffleBtn.addEventListener("click", reshuffle);
+    resetBtn.addEventListener("click", resetAll);
+
+    nextBtn.addEventListener("click", next);
+
+    card3d.addEventListener("click", () => {
+      if (!players.length) return;
+      if (!revealed) reveal();
+      else flipBack();
+    });
+    card3d.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " "){
+        e.preventDefault();
+        if (!revealed) reveal();
+        else flipBack();
+      }
+    });
+
+    flipBtn.addEventListener("click", () => {
+      if (!players.length) return;
+      if (!revealed) reveal();
+      else flipBack();
+    });
+
+    pcEl.addEventListener("input", validate);
+    icEl.addEventListener("input", validate);
+
+    // init
+    validate();
+    header();
+    setFaceDown();
+  </script>
+</body>
+</html>
